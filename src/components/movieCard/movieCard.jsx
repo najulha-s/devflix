@@ -1,9 +1,16 @@
+import { useState } from "react";
+import MovieDesc from "../movieDescription/movieDescription";
 import styles from "./movieCard.module.css";
 
 const MovieCard = ({ movies }) => {
     const movie = movies;
+    const [isModalOpen, setIsModalOpen]= useState(false);
+    const toggleModal= ()=> {
+        setIsModalOpen(!isModalOpen);
+    };
     return (
-        <div className={styles.movie}>
+        <>
+        <div className={styles.movie} onClick={toggleModal}>
             <div>
                 <p>{movie.Year}</p>
             </div>
@@ -15,6 +22,8 @@ const MovieCard = ({ movies }) => {
                 <h3>{movie.Title}</h3>
             </div>
         </div>
+{isModalOpen && <MovieDesc movies={movie} click={toggleModal} />}
+    </>
     )
 }
 export default MovieCard;
