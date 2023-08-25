@@ -122,6 +122,10 @@
         padding-top: 4em;
         display: block;
     }
+    .btnClose{
+        width: 45px;
+        height: 45px;
+    }
     
 }
 
